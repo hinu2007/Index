@@ -199,7 +199,7 @@ def main():
                 return
         except Exception as e:
             return f"ERROR: {str(e)}"
-    st.title("アンケートフォーム")
+    st.title("アンケートフォーム test")
 
     # スプレッドシートコントローラーのインスタンスを作成
     SpreadSheetCtrl = CSpreadSheetCtrl()
