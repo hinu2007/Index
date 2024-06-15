@@ -196,7 +196,7 @@ def main():
     sheet_id = nameid
     # クライアント秘密鍵のJSONファイルを読み込む
     SpreadSheetCtrl.set_sheet_id(sheet_id)
-    SpreadSheetCtrl.set_client_secret(json_data)
+    # SpreadSheetCtrl.set_client_secret(json_data)
     # Googleスプレッドシートへの接続
     if SpreadSheetCtrl.connect(json_data):
         last_id, sheet_name = SpreadSheetCtrl.get_data_num()
