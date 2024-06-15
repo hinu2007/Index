@@ -1,0 +1,6 @@
+streamlit==1.34.0
+requests
+google-auth-httplib2
+httplib2
+google-auth
+google-api-python-client
