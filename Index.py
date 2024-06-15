@@ -22,7 +22,6 @@ ENCODEDLL_PATH = 'encode.so'
 class CSpreadSheetCtrl:
     def __init__(self):
         self.sheet_id = None
-        self.client_secret = None
         self.cred = None
         self.gsheet = None
         self.sheet_name = None 
@@ -32,14 +31,7 @@ class CSpreadSheetCtrl:
         if (sheet_id == None) or (sheet_id == ""):
             self.sheet_id = None
         else:
-            self.sheet_id = sheet_id    
-    
-    def set_client_secret(self, client_secret):
-        """JSONファイルの設定"""
-        if (client_secret == None) or (client_secret == ""):
-            self.client_secret = None
-        else:
-            self.client_secret = client_secret   
+            self.sheet_id = sheet_id
    
     def connect(self, json_data):
         """接続"""
@@ -70,13 +62,11 @@ class CSpreadSheetCtrl:
                 return False
             # --- シート名の設定 -----------------
             self.sheet_name = (datetime.now()+timedelta(hours=9)).strftime('%Y%m%d')
-            st.write(self.sheet_name)
             # --- シートの有無確認 & 作成 --------
             result = self.is_exist_sheet(self.sheet_name) 
             if result == False:
                 # シートの作成
                 result = self.make_sheet(self.sheet_name) 
-                st.write(self.sheet_name)
                 if result == False:
                     return False
             # --- データ登録 ---------------------
@@ -199,7 +189,7 @@ def main():
                 return
         except Exception as e:
             return f"ERROR: {str(e)}"
-    st.title("アンケートフォーム test")
+    st.title("アンケートフォーム")
 
     # スプレッドシートコントローラーのインスタンスを作成
     SpreadSheetCtrl = CSpreadSheetCtrl()
