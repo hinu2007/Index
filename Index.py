@@ -70,6 +70,7 @@ class CSpreadSheetCtrl:
                 return False
             # --- シート名の設定 -----------------
             self.sheet_name = (datetime.now()+timedelta(hours=9)).strftime('%Y%m%d')
+            st.write(self.sheet_name)
             # --- シートの有無確認 & 作成 --------
             result = self.is_exist_sheet(self.sheet_name) 
             if result == False:
