@@ -76,6 +76,7 @@ class CSpreadSheetCtrl:
             if result == False:
                 # シートの作成
                 result = self.make_sheet(self.sheet_name) 
+                st.write(self.sheet_name)
                 if result == False:
                     return False
             # --- データ登録 ---------------------
