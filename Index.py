@@ -174,6 +174,9 @@ class CSpreadSheetCtrl:
             return 0, None
         
 def main():
+    # カスタムCSSを読み込む
+    local_css("styles.css")
+    
     # urlから暗号化されたパラメータを取得
     try:
         params = st.query_params
@@ -338,6 +341,11 @@ def send_email(recipient_email, subject, message, gmail_adr, gmail_psw):
         st.success('メールにもIDを送信しましたので、ご確認ください。')
     except Exception as e:
         st.error('メールの送信中にエラーが発生しました。')
+
+# カスタムCSSを読み込む関数
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()
